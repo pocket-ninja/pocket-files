@@ -1,0 +1,36 @@
+default_platform :ios
+skip_docs
+opt_out_usage
+
+lane :test do
+  spm(command: "test")
+end
+
+lane :patch do
+  update(type: "patch")
+end
+
+lane :minor do
+  update(type: "minor")
+end
+
+lane :major do
+  update(type: "major")
+end
+
+lane :update do |options|
+  fastlane_require 'fastlane-ext'
+
+  UI.message "Going to bump project version"
+  sync_git_tags
+
+  type = options[:type]
+
+  if type == "none"
+    UI.message("No version type found")
+    return
+  end
+
+  cmd = "bundle exec git-version-bump " + type
+  raise "Failed to patch version! cmd: '#{cmd}'" unless system(cmd)
+end
