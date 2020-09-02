@@ -84,6 +84,7 @@ GEM
       aws-sdk-s3 (> 0)
       xcodeproj (> 0)
     gh_inspector (1.1.3)
+    git-version-bump (0.17.1)
     google-api-client (0.38.0)
       addressable (~> 2.5, >= 2.5.1)
       googleauth (~> 0.9)
@@ -177,6 +178,7 @@ PLATFORMS
 DEPENDENCIES
   fastlane
   fastlane-ext
+  git-version-bump
 
 BUNDLED WITH
    2.1.4
