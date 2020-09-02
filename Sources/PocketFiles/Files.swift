@@ -6,7 +6,7 @@ public struct Files {
     public var writeDataToPath: (Data, String) throws -> Void
     public var deleteAtPath: (String) throws -> Void
 
-    init(
+    public init(
         existsAtPath: @escaping (String) -> Bool,
         readDataAtPath: @escaping (String) throws -> Data,
         writeDataToPath: @escaping (Data, String) throws -> Void,
@@ -19,7 +19,7 @@ public struct Files {
     }
 }
 
-extension Files {
+public extension Files {
     func exists(at filePath: String) -> Bool {
         existsAtPath(filePath)
     }
